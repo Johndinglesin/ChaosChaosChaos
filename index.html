@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Chaos Chaos | Bedrock & Java</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #0f172a; 
+            color: white; 
+            overflow-x: hidden;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('arena-bg.png'); 
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn-primary { 
+            background-color: #dc2626; 
+            color: white; 
+            font-weight: bold; 
+            padding: 1rem 2rem; 
+            border-radius: 0.5rem; 
+            transition: all 0.2s; 
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-primary:hover { 
+            background-color: #b91c1c; 
+            transform: scale(1.05); 
+        }
+
+        .btn-secondary {
+            background-color: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(51, 65, 85, 0.9);
+            transform: scale(1.05);
+            border-color: #dc2626;
+        }
+        
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img src="logo.png" alt="Chaos Logo" class="h-10 w-10 object-contain" onerror="this.style.display='none'">
+            <div class="text-2xl font-black tracking-tighter">CHAOS<span class="text-red-500">3</span></div>
+        </div>
+        <div class="space-x-8 hidden md:flex font-bold uppercase text-sm">
+            <a href="#" class="hover:text-red-500 transition">Home</a>
+            <a href="#features" class="hover:text-red-500 transition">Features</a>
+            <a href="https://modrinth.com/user/cmentzelbrock" target="_blank" class="hover:text-red-500 transition">Mods</a>
+            <a href="#about" class="hover:text-red-500 transition">About Creator</a>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="copyJava()" class="bg-white text-black px-3 py-2 rounded font-bold text-[10px] uppercase hover:bg-red-600 hover:text-white transition">Java IP</button>
+            <button onclick="copyBedrock()" class="bg-red-600 text-white px-3 py-2 rounded font-bold text-[10px] uppercase hover:bg-white hover:text-black transition">Bedrock IP</button>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 hero-bg pt-20">
+        <h1 class="text-5xl md:text-8xl font-black mb-4 tracking-tight uppercase drop-shadow-lg">
+            PURE <span class="text-red-600 italic">CHAOS</span>
+        </h1>
+        <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mb-10 font-medium">
+            Join the ultimate cross-play experience. Only one rule applies: Cause Chaos.
+        </p>
+        
+        <div class="flex flex-col md:flex-row gap-6 items-center">
+            <button onclick="copyJava()" class="btn-primary text-xl">
+                COPY JAVA IP
+            </button>
+            <button onclick="copyBedrock()" class="btn-secondary text-xl">
+                COPY BEDROCK IP
+            </button>
+            <div class="glass px-8 py-4 rounded-lg flex flex-col justify-center items-center">
+                <span id="player-count" class="text-2xl font-bold text-green-400 animate-pulse">Pinging...</span>
+                <span class="text-xs uppercase text-gray-400 tracking-wider">Players Online</span>
+            </div>
+        </div>
+        
+        <div class="mt-8 flex flex-col gap-2 text-sm text-gray-400 font-mono">
+            <div class="bg-black/50 px-4 py-2 rounded border border-gray-700">Java: chaoschaoschaos.minekeep.gg</div>
+            <div class="bg-black/50 px-4 py-2 rounded border border-gray-700">Bedrock: chaoschaoschaos.bedrock.minekeep.gg | Port: 19132</div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black uppercase text-red-500 tracking-tight">What to Expect</h2>
+            <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-2xl border-t-4 border-red-600">
+                <div class="text-4xl mb-4">🔥</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase italic">One Rule</h3>
+                <p class="text-gray-400 leading-relaxed font-medium">Our server only has one rule: to cause chaos. No mercy, no limits. Survival of the fittest.</p>
+            </div>
+            <div class="glass p-8 rounded-2xl border-t-4 border-blue-500">
+                <div class="text-4xl mb-4">🎮</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase italic">Bedrock Friendly</h3>
+                <p class="text-gray-400 leading-relaxed font-medium">Join from Bedrock via GeyserMC and Floodgate on the standard Bedrock port.</p>
+            </div>
+            <div class="glass p-8 rounded-2xl border-t-4 border-purple-500">
+                <div class="text-4xl mb-4">⚙️</div>
+                <h3 class="text-2xl font-bold mb-4 uppercase italic">Server-Side Mods</h3>
+                <p class="text-gray-400 leading-relaxed font-medium">Multiple mods are active, but they are all server-side so you don't have the hassle of installing them!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto text-center glass p-10 rounded-3xl">
+            <h2 class="text-3xl font-black uppercase mb-6 text-white">About the Creator</h2>
+            <h4 class="text-red-500 font-bold text-xl mb-4">Cadin Mentzel-Brock</h4>
+            <p class="text-gray-300 text-lg leading-relaxed italic mb-6 italic text-center">
+                "I have been making sites and playing Minecraft for a long time now and I am excited to be making a site about one of my servers that I genuinely think is fun."
+            </p>
+            <div class="inline-block bg-red-600/20 text-red-400 px-4 py-2 rounded-full font-bold text-sm uppercase tracking-wider border border-red-500/30">
+                Developer • Owner • Bringer of Chaos
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-gray-800 text-center bg-black">
+        <p class="text-gray-500 text-sm font-medium">
+            © 2026 Chaos Chaos Chaos. Built by <span class="text-white font-bold">Cadin Mentzel-Brock</span>.
+        </p>
+    </footer>
+
+    <script>
+        window.__ow = window.__ow || {};
+        window.__ow.organizationId = "1a95cc95-4a48-4292-9375-5f99eaab44cf";
+        window.__ow.integration_name = "manual_settings";
+        window.__ow.product_name = "openwidget";   
+        ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
+    </script>
+
+    <script>
+        async function updateStatus() {
+            try {
+                // Pinging the Java IP for player count
+                const res = await fetch('https://api.mcsrvstat.us/2/chaoschaoschaos.minekeep.gg');
+                const data = await res.json();
+                const countElement = document.getElementById('player-count');
+                if(data.online) {
+                    countElement.innerText = data.players.online + " Players";
+                } else {
+                    countElement.innerText = "Offline";
+                }
+            } catch (e) { 
+                document.getElementById('player-count').innerText = "Status Unknown";
+            }
+        }
+
+        function copyJava() {
+            navigator.clipboard.writeText("chaoschaoschaos.minekeep.gg");
+            alert("Java IP Copied!");
+        }
+
+        function copyBedrock() {
+            navigator.clipboard.writeText("chaoschaoschaos.bedrock.minekeep.gg");
+            alert("Bedrock IP Copied! Port: 19132");
+        }
+
+        updateStatus();
+        setInterval(updateStatus, 30000);
+    </script>
+</body>
+</html>
